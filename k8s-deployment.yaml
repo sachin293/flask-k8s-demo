@@ -12,6 +12,10 @@ spec:
       labels:
         app: flask-k8s-demo
     spec:
+      tolerations:
+        - key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+          effect: "NoSchedule"
       containers:
       - name: flask-k8s-demo
         image: sachin293/flask-k8s-demo:latest
